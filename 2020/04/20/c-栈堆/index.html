@@ -7,15 +7,15 @@
   
   <title>c++栈堆 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#C++内存分布  c++中内存分配分为三个部分，分别是 栈，堆，静态存储区，文字常量区，代码区。1.栈区  栈区通常由程序自动申请或释放，主要存储有 局部变量，函数参数等； 2.堆区  堆区通常是手动申请或释放，malloc(free), new(delete)；   malloc(free) 和 new(delete)的区别  malloc是c中的库函数，new是c++中的操作符  mallo">
+  <meta name="description" content="#C++内存分布  c++中内存分配分为五个部分，分别是 栈，堆，静态存储区，文字常量区，代码区。1.栈区  栈区通常由程序自动申请或释放，主要存储有 局部变量，函数参数等； 2.堆区  堆区通常是手动申请或释放，malloc(free), new(delete)；   malloc(free) 和 new(delete)的区别  malloc是c中的库函数，new是c++中的操作符  mallo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++栈堆">
 <meta property="og:url" content="http://yoursite.com/2020/04/20/c-%E6%A0%88%E5%A0%86/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#C++内存分布  c++中内存分配分为三个部分，分别是 栈，堆，静态存储区，文字常量区，代码区。1.栈区  栈区通常由程序自动申请或释放，主要存储有 局部变量，函数参数等； 2.堆区  堆区通常是手动申请或释放，malloc(free), new(delete)；   malloc(free) 和 new(delete)的区别  malloc是c中的库函数，new是c++中的操作符  mallo">
+<meta property="og:description" content="#C++内存分布  c++中内存分配分为五个部分，分别是 栈，堆，静态存储区，文字常量区，代码区。1.栈区  栈区通常由程序自动申请或释放，主要存储有 局部变量，函数参数等； 2.堆区  堆区通常是手动申请或释放，malloc(free), new(delete)；   malloc(free) 和 new(delete)的区别  malloc是c中的库函数，new是c++中的操作符  mallo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-20T03:22:07.000Z">
-<meta property="article:modified_time" content="2020-04-20T07:42:14.786Z">
+<meta property="article:modified_time" content="2020-04-20T07:51:35.250Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -90,9 +90,9 @@
       
         <p>#C++内存分布</p>
 <hr>
-<p>c++中内存分配分为三个部分，分别是 栈，堆，静态存储区，文字常量区，代码区。<br>1.栈区<br>  栈区通常由程序自动申请或释放，主要存储有 局部变量，函数参数等；</p>
+<p>c++中内存分配分为五个部分，分别是 栈，堆，静态存储区，文字常量区，代码区。<br>1.栈区<br>  栈区通常由程序自动申请或释放，主要存储有 局部变量，函数参数等；</p>
 <p>2.堆区<br>  堆区通常是手动申请或释放，malloc(free), new(delete)；</p>
-<p>  malloc(free) 和 new(delete)的区别<br>  malloc是c中的库函数，new是c++中的操作符<br>  malloc只申请动态内存，new同时还会调用对象的构造函数；</p>
+<p>  malloc(free) 和 new(delete)的区别<br>  malloc是c中的库函数，new是c++中的操作符<br>  malloc只申请动态内存，new同时还会调用对象的构造函数,delete会调用对象的析构函数；</p>
 <p>3.静态存储区<br>  通常存储全局变量 和静态局部变量（static关键字修饰）, 定义的全局变量或静态局部变量存储在数据段，未定义的存储在BSS段；</p>
 <p>4.文字常量区<br>  存储常量字符串</p>
 <p>5.代码区<br>   存储代码</p>
