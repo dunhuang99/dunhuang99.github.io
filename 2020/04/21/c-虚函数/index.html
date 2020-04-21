@@ -5,17 +5,17 @@
   
 
   
-  <title>c++ 重载 覆盖 区别 | Hexo</title>
+  <title>c++虚函数 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##C++重载、覆盖、隐藏区别 在c++中，重载和覆盖通常被混淆，现在来说一下其区别 重载：在同一个类中，函数名相同，参数表不同（参数个数，名字只要有一个不同）； 覆盖：在不同的类中，函数名相同，参数表也要相同，基类函数含有virtual关键字； 隐藏：1.在不同类中，函数名相同，参数表也相同，基类函数不含virtual关键字；      2.在不同类中，函数名相同，参数表不同；      此时，">
+  <meta name="description" content="C++虚函数实现原理  c++虚函数是通过虚函数表来实现的，当一个类里含有虚函数时，编译器会给这个类分配一个虚函数表，虚函数表里存放的是虚函数的地址。  当该类被继承时，其子类也会继承基类的虚函数表。  比如基类含有一个虚函数 f(), 子类含有一个虚函数g()；基类的虚函数表里存放的就是函数f的地址，而子类的虚函数表里第一位存放的是  基类函数f的地址，第二位存放的是函数g的地址。  当子类虚函">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c++ 重载 覆盖 区别">
-<meta property="og:url" content="http://yoursite.com/2020/04/20/c-%E9%87%8D%E8%BD%BD-%E8%A6%86%E7%9B%96-%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:title" content="c++虚函数">
+<meta property="og:url" content="http://yoursite.com/2020/04/21/c-%E8%99%9A%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##C++重载、覆盖、隐藏区别 在c++中，重载和覆盖通常被混淆，现在来说一下其区别 重载：在同一个类中，函数名相同，参数表不同（参数个数，名字只要有一个不同）； 覆盖：在不同的类中，函数名相同，参数表也要相同，基类函数含有virtual关键字； 隐藏：1.在不同类中，函数名相同，参数表也相同，基类函数不含virtual关键字；      2.在不同类中，函数名相同，参数表不同；      此时，">
+<meta property="og:description" content="C++虚函数实现原理  c++虚函数是通过虚函数表来实现的，当一个类里含有虚函数时，编译器会给这个类分配一个虚函数表，虚函数表里存放的是虚函数的地址。  当该类被继承时，其子类也会继承基类的虚函数表。  比如基类含有一个虚函数 f(), 子类含有一个虚函数g()；基类的虚函数表里存放的就是函数f的地址，而子类的虚函数表里第一位存放的是  基类函数f的地址，第二位存放的是函数g的地址。  当子类虚函">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-20T14:25:07.000Z">
-<meta property="article:modified_time" content="2020-04-21T12:43:49.969Z">
+<meta property="article:published_time" content="2020-04-21T13:21:19.000Z">
+<meta property="article:modified_time" content="2020-04-21T13:35:19.092Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -66,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-c-重载-覆盖-区别" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-c-虚函数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/04/20/c-%E9%87%8D%E8%BD%BD-%E8%A6%86%E7%9B%96-%E5%8C%BA%E5%88%AB/" class="article-date">
-  <time datetime="2020-04-20T14:25:07.000Z" itemprop="datePublished">2020-04-20</time>
+    <a href="/2020/04/21/c-%E8%99%9A%E5%87%BD%E6%95%B0/" class="article-date">
+  <time datetime="2020-04-21T13:21:19.000Z" itemprop="datePublished">2020-04-21</time>
 </a>
     
   </div>
@@ -80,7 +80,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      c++ 重载 覆盖 区别
+      c++虚函数
     </h1>
   
 
@@ -88,16 +88,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##C++重载、覆盖、隐藏区别</p>
-<p>在c++中，重载和覆盖通常被混淆，现在来说一下其区别</p>
-<p>重载：在同一个类中，函数名相同，参数表不同（参数个数，名字只要有一个不同）；</p>
-<p>覆盖：在不同的类中，函数名相同，参数表也要相同，基类函数含有virtual关键字；</p>
-<p>隐藏：1.在不同类中，函数名相同，参数表也相同，基类函数不含virtual关键字；<br>      2.在不同类中，函数名相同，参数表不同；<br>      此时，基类函数被隐藏；</p>
+        <h2 id="C-虚函数实现原理"><a href="#C-虚函数实现原理" class="headerlink" title="C++虚函数实现原理"></a>C++虚函数实现原理</h2><p>  c++虚函数是通过虚函数表来实现的，当一个类里含有虚函数时，编译器会给这个类分配一个虚函数表，虚函数表里存放的是虚函数的地址。<br>  当该类被继承时，其子类也会继承基类的虚函数表。<br>  比如基类含有一个虚函数 f(), 子类含有一个虚函数g()；基类的虚函数表里存放的就是函数f的地址，而子类的虚函数表里第一位存放的是<br>  基类函数f的地址，第二位存放的是函数g的地址。<br>  当子类虚函数覆盖基类虚函数时（参考c++重载，覆盖，隐藏）,子类虚函数表中该虚函数的位置就存放到原先基类虚函数的位置，这样基类<br>  指针指向子类对象时，调用基类虚函数实际就会调用子类的虚函数，这就实现了多态。</p>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/20/c-%E9%87%8D%E8%BD%BD-%E8%A6%86%E7%9B%96-%E5%8C%BA%E5%88%AB/" data-id="ck99wu6so0001rvnw6o01azni" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/21/c-%E8%99%9A%E5%87%BD%E6%95%B0/" data-id="ck99yaqks00000xnw2rw5g5m8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -106,19 +103,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/04/21/c-%E8%99%9A%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          c++虚函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/20/c-%E6%A0%88%E5%A0%86/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/04/20/c-%E9%87%8D%E8%BD%BD-%E8%A6%86%E7%9B%96-%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">c++栈堆</div>
+      <div class="article-nav-title">c++ 重载 覆盖 区别</div>
     </a>
   
 </nav>
